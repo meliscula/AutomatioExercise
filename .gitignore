@@ -1,0 +1,10 @@
+# Cypress files
+cypress/videos/
+cypress/screenshots/
+cypress/downloads/
+
+# Dependencies
+node_modules/
+
+# System Files
+.DS_Store

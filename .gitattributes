@@ -1,0 +1,6 @@
+# Auto detect text files and perform LF normalization
+* text=auto eol=lf
+
+# JS files must keep LF endings
+*.js text eol=lf
+*.json text eol=lf
