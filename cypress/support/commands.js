@@ -20,6 +20,51 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+// Get element by data-qa attribute
 Cypress.Commands.add('getTestData', (dataSelector) => {
     return cy.get(`[data-qa="${dataSelector}"]`)
 })
+
+// Get element by ID
+Cypress.Commands.add('getById', (id) => {
+    return cy.get(`#${id}`)
+})
+
+// Get element by class
+Cypress.Commands.add('getByClass', (className) => {
+    return cy.get(`.${className}`)
+})
+
+// Get element by custom attribute
+Cypress.Commands.add('getByAttribute', (attribute, value) => {
+    return cy.get(`[${attribute}="${value}"]`)
+})
+
+// Get element by href
+Cypress.Commands.add('getByHref', (href) => {
+    return cy.get(`a[href="${href}"]`)
+})
+
+// Get element containing text
+Cypress.Commands.add('getByText', (text) => {
+    return cy.contains(text)
+})
+
+// Get element by href attribute
+Cypress.Commands.add('getByHref', (href) => {
+    return cy.get(`a[href="${href}"]`)
+});
+
+// Get element by form action
+Cypress.Commands.add('getByFormAction', (action) => {
+    return cy.get(`form[action="${action}"]`)
+});
+
+Cypress.Commands.add('getNavLink', (text) => {
+    return cy.get('li a').contains(text)
+})
+
+// Get element by tag and class combination
+Cypress.Commands.add('getByTagAndClass', (tag, className) => {
+    return cy.get(`${tag}[class="${className}"]`)
+});

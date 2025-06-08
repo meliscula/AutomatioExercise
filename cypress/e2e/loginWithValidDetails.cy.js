@@ -1,11 +1,8 @@
 /// <reference types="cypress" />
-
+import { loginSetup } from "../support/utilities/hooks";
 describe('Login with Valid Details Tests', () => {
-    beforeEach(() => {
-        // Clear cookies and localStorage before each test
-        cy.clearCookies();
-        cy.clearLocalStorage();
-        cy.visit('/');
+    beforeEach(function() {
+        loginSetup();
     });
 
     it('should visit Automation Exercise', () => {
@@ -13,26 +10,26 @@ describe('Login with Valid Details Tests', () => {
         cy.get('div[class="logo pull-left"] img').should('be.visible');
     });
 
-    it('should login with valid user details', () => {
+    it('should login with valid user details', function() {
         // Navigate to Signup/Login page
-        cy.get('a[href="/login"]').click();
-        cy.get('form[action="/login"]').should('be.visible');
+        cy.getByHref('/login').click();
+        cy.getByFormAction('/login').should('be.visible');
         
         // Fill in login details
-        cy.get('[data-qa="login-email"]').type('gwen5@yahoo.com');
-        cy.get('[data-qa="login-password"]').type('password123');
-        cy.get('[data-qa="login-button"]').click();
+        cy.getTestData('login-email').type(this.userData.validUser.email);
+        cy.getTestData('login-password').type(this.userData.validUser.password);
+        cy.getTestData('login-button').click();
 
         //verify if user is created successfully and logged in
-        cy.get('li a').contains('Logged in as').should('contain', 'John Doe');
+        cy.getNavLink('Logged in as').should('contain', this.userData.validUser.name);
 
         //delete the user account
-        cy.get('li a').contains('Delete Account').click();
+        cy.getNavLink('Delete Account').click();
 
         //verify if account deletion is successful
-        cy.get('[data-qa="account-deleted"]').should('be.visible')
+        cy.getTestData('account-deleted').should('be.visible')
         cy.contains('p', 'Your account has been permanently deleted!').should('be.visible');
 
-    })
+    });
 
-})
+});

@@ -1,0 +1,23 @@
+{
+  "validUser": {
+    "email": "gwen5@yahoo.com",
+    "password": "password123",
+    "name": "John Doe"
+  },
+  "invalidUser": {
+    "email": "invalid@email.com",
+    "password": "wrongpassword",
+    "name": "Invalid User"
+  },
+  "registrationData": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "company": "Test Company",
+    "address": "123 Test St",
+    "address2": "Apt 4B",
+    "state": "California",
+    "city": "Los Angeles",
+    "zipcode": "90001",
+    "mobileNumber": "1234567890"
+  }
+}
