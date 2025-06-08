@@ -9,7 +9,7 @@ describe('Register User Tests', () =>{
     it('should visit Automation Exercise', () => {
 
         //verify the homepage is loaded
-        cy.getByClass('logo pull-left').find('img').should('be.visible');
+        cy.get('div[class="logo pull-left"]').find('img').should('be.visible');
         
     });
 
@@ -17,7 +17,7 @@ describe('Register User Tests', () =>{
 
         //navigate to Signup/Login page
         cy.getByHref('/login').click();
-        cy.getByFormAction('"/signup').should('be.visible');
+        cy.getByFormAction('/signup').should('be.visible');
         cy.getTestData('signup-name').type(this.registrationSetup.validUser.name);
         cy.getTestData('signup-password').type(this.registrationSetup.validUser.password);
         cy.getTestData('signup-email').type(this.registrationSetup.validUser.email);
