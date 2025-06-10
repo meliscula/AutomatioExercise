@@ -48,6 +48,17 @@ describe('Register User Tests', () => {
             cy.contains('li', 'Logged in as', { timeout: 20000 })
                 .should('be.visible')
                 .and('contain', userData.validUser.name);
+            
+            //delete the user account
+            cy.getNavLink('Delete Account').click();
+
+            //verify if account deletion is successful
+            cy.getTestData('account-deleted').should('be.visible')
+            cy.contains('p', 'Your account has been permanently deleted!').should('be.visible');
+
+             //verify user is logged out
+            cy.getTestData('continue-button').click();
+            cy.get('div[class="logo pull-left"]').find('img').should('be.visible');
         });
     });
 });
