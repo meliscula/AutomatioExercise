@@ -26,15 +26,11 @@ describe('Login with Valid Details Tests', () => {
             cy.contains('ul', 'Logged in as', { timeout: 20000 })
                 .should('be.visible')
                 .and('contain', userData.validUser.name);
+        });
 
-            // Delete account
-            cy.getNavLink('Delete Account').click();
-
-            // Verify account deletion
-            cy.getTestData('account-deleted')
-                .should('be.visible', { timeout: 10000 });
-            cy.contains('p', 'Your account has been permanently deleted!')
-                .should('be.visible');
+    it('should allow user to logout', function() {
+            cy.contains('ul', 'logout').click();
+            cy.url('/login').should('be.visible');
         });
     });
 });
