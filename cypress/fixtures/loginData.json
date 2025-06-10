@@ -21,5 +21,18 @@
     "city": "Los Angeles",
     "zipcode": "90001",
     "mobileNumber": "1234567890"
+  },
+
+  "ExistingUser": {
+    "email": "gwen5@yahoo.com",
+    "name": "John Doe"
   }
+
+
+
+
+
+
+
+  
 }
