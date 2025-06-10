@@ -4,12 +4,14 @@
     "password": "password123",
     "name": "John Doe"
   },
+
   "invalidUser": {
-    "email": "invalid@email.com",
-    "password": "wrongpassword",
-    "name": "Invalid User"
+    "email": "wrong@email.com",
+    "password": "wrongpassword"
   },
+
   "registrationData": {
+    "password": "password123",
     "firstName": "John",
     "lastName": "Doe",
     "company": "Test Company",

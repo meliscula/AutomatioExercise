@@ -1,14 +1,18 @@
 // Common test setup hooks
 export const loginSetup = () => {
-    cy.fixture("loginData").as("userData");
+    return cy.fixture("loginData").then(function (data) {
+        cy.wrap(data).as('userData')  // Loads test data into this context
     cy.clearCookies();
     cy.clearLocalStorage();
     cy.visit('/');
+});
 };
 
 export const registrationSetup = () => {
-    cy.fixture("loginData").as("registrationData");  // Loads test data
-    cy.clearCookies();                               // Clears browser cookies
-    cy.clearLocalStorage();                          // Clears localStorage
-    cy.visit('/');                                   // Visits the base URL
-}; 
+    return cy.fixture('loginData').then((data) => {
+        cy.wrap(data).as('userData');
+        cy.clearCookies();
+        cy.clearLocalStorage();
+        cy.visit('/');
+    });
+};
