@@ -26,13 +26,14 @@
   "ExistingUser": {
     "email": "gwen5@yahoo.com",
     "name": "John Doe"
+  },
+
+  "contactUsForm": {
+    "name": "Jane Smith",
+    "email": "jane@test.com",
+    "subject": "Inquiry",
+    "message": "This is a test message for the contact us form.",
+    "filePath": "../fixtures/testfiles/test.xlsx"
   }
-
-
-
-
-
-
-
   
 }

@@ -27,3 +27,12 @@ export const ExistingEmail = () => {
         cy.visit('/');
     });
 };
+
+export const contactUsForm = () => {
+    return cy.fixture("loginData").then((data) => {
+        cy.wrap(data).as('userData');
+        cy.clearCookies();
+        cy.clearLocalStorage();
+        cy.visit('/');
+    });
+};

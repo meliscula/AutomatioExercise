@@ -53,12 +53,12 @@ Cypress.Commands.add('getByText', (text) => {
 // Get element by href attribute
 Cypress.Commands.add('getByHref', (href) => {
     return cy.get(`a[href="${href}"]`)
-});
+})
 
 // Get element by form action
 Cypress.Commands.add('getByFormAction', (action) => {
     return cy.get(`form[action="${action}"]`)
-});
+})
 
 Cypress.Commands.add('getNavLink', (text) => {
     return cy.get('li a').contains(text)
@@ -67,4 +67,8 @@ Cypress.Commands.add('getNavLink', (text) => {
 // Get element by tag and class combination
 Cypress.Commands.add('getByTagAndClass', (tag, className) => {
     return cy.get(`${tag}[class="${className}"]`)
-});
+})
+// Get element by name attribute
+Cypress.Commands.add('getByName', (name) => {
+    return cy.get(`[name="${name}"]`)
+})
