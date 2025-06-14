@@ -50,10 +50,6 @@ Cypress.Commands.add('getByText', (text) => {
     return cy.contains(text)
 })
 
-// Get element by href attribute
-Cypress.Commands.add('getByHref', (href) => {
-    return cy.get(`a[href="${href}"]`)
-})
 
 // Get element by form action
 Cypress.Commands.add('getByFormAction', (action) => {

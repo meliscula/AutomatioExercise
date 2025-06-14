@@ -22,6 +22,4 @@ describe('Test Cases Page', () => {
             cy.get('#form > .container').children('.panel-group').should('exist');
         });
     });
-
-
 });
