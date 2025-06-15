@@ -178,14 +178,13 @@
   },
   "scripts": {
     "cy:run": "cypress run --env allure=true",
-    "allure:clear": "rimraf allure-results/ allure-report cypress/videos cypress/screenshots",
-    "clean": "rimraf ./allure-results ./allure-report ./cypress/videos ./cypress/screenshots",
+    "allure:clear": "rd /s /q allure-results allure-report cypress\\videos cypress\\screenshots 2>nul || exit 0",
     "allure:report": "allure generate allure-results --clean -o allure-report",
-    "allure:open": "allure serve allure-results",
-    "test": "npm run allure:clear && npm run cy:run || npm run posttest",
-    "posttest": "npm run allure:report",
-    "allure:generate": "allure generate --clean",
-    "allure:history": "allure history"
+    "allure:serve": "allure serve allure-results",
+    "test:ci": "npm run cy:run && npm run allure:report",
+    "pretest": "npm run allure:clear",
+    "test": "npm run cy:run",
+    "posttest": "npm run allure:report"
   },
   "keywords": [],
   "author": "",

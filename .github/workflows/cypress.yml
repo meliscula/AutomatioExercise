@@ -11,12 +11,22 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18.x'
+
+      - name: Cache Dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm
+            node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       - name: Install Dependencies
         run: npm ci
@@ -33,16 +43,19 @@ jobs:
           browser: chrome
           config-file: cypress.config.js
 
-      - name: Generate Test Report
+      - name: Generate Allure Report
         if: always()
         run: |
-          npm run allure:generate
-          npm run allure:history
+          npm run pretest
+          npm run test
+          npm run posttest
 
       - name: Upload Test Results
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: test-results
+          name: allure-report
           path: allure-report/
           retention-days: 30
+          if-no-files-found: error # New feature in v4
+          compression-level: 6 # New feature in v4 to optimize upload size
