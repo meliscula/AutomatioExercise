@@ -181,6 +181,7 @@
     "allure:clear": "rd /s /q allure-results allure-report cypress\\videos cypress\\screenshots 2>nul || exit 0",
     "allure:generate": "allure generate allure-results --clean -o allure-report",
     "allure:serve": "allure serve allure-results",
+    "allure:report": "allure generate allure-results --clean -o allure-report",
     "allure:open": "allure open allure-report",
     "test:ci": "npm run cy:run && npm run allure:report",
     "pretest": "npm run allure:clear",
