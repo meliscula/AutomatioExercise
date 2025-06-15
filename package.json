@@ -170,11 +170,20 @@
     "yauzl": "^2.10.0"
   },
   "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^2.41.2",
+    "allure-commandline": "^2.34.0",
     "cypress": "^14.4.1",
-    "cypress-file-upload": "^5.0.8"
+    "cypress-file-upload": "^5.0.8",
+    "rimraf": "^6.0.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cy:run": "cypress run --env allure=true",
+    "allure:clear": "rimraf allure-results/ allure-report cypress/videos cypress/screenshots",
+    "clean": "rimraf ./allure-results ./allure-report ./cypress/videos ./cypress/screenshots",
+    "allure:report": "allure generate allure-results --clean -o allure-report",
+    "allure:open": "allure serve allure-results",
+    "test": "npm run allure:clear && npm run cy:run || npm run posttest",
+    "posttest": "npm run allure:report"
   },
   "keywords": [],
   "author": "",
