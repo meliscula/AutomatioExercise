@@ -183,7 +183,9 @@
     "allure:report": "allure generate allure-results --clean -o allure-report",
     "allure:open": "allure serve allure-results",
     "test": "npm run allure:clear && npm run cy:run || npm run posttest",
-    "posttest": "npm run allure:report"
+    "posttest": "npm run allure:report",
+    "allure:generate": "allure generate --clean",
+    "allure:history": "allure history"
   },
   "keywords": [],
   "author": "",
