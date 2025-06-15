@@ -56,7 +56,7 @@ describe('Register User Tests', () => {
             cy.getTestData('account-deleted').should('be.visible')
             cy.contains('p', 'Your account has been permanently deleted!').should('be.visible');
 
-             //verify user is logged out
+             //verify user is redirected to home page
             cy.getTestData('continue-button').click();
             cy.get('div[class="logo pull-left"]').find('img').should('be.visible');
         });

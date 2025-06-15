@@ -4,9 +4,9 @@ import { data } from "ospath";
 export const loginSetup = () => {
     return cy.fixture("loginData").then(function (data) {
         cy.wrap(data).as('userData')  // Loads test data into this context
-    cy.clearCookies();
-    cy.clearLocalStorage();
-    cy.visit('/');
+        cy.clearCookies();
+        cy.clearLocalStorage();
+        cy.visit('/');
 });
 };
 

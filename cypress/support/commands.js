@@ -68,3 +68,11 @@ Cypress.Commands.add('getByTagAndClass', (tag, className) => {
 Cypress.Commands.add('getByName', (name) => {
     return cy.get(`[name="${name}"]`)
 })
+//search randomly for a product by name
+Cypress.Commands.add('getRandomProduct', () => {
+    return cy.fixture('loginData').then((data) => {
+        const { names: products } = data.products;
+        const randomIndex = Math.floor(Math.random() * products.length);
+        return products[randomIndex];
+    });
+});

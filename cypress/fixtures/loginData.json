@@ -34,6 +34,17 @@
     "subject": "Inquiry",
     "message": "This is a test message for the contact us form.",
     "filePath": "../fixtures/testfiles/test.xlsx"
+  },
+
+  "products": {
+    "names": [
+      "Blue Top",
+      "Men Tshirt",
+      "Sleeveless Dress",
+      "Stylish Dress",
+      "Winter Top",
+      "Summer White Top"
+    ]
   }
   
 }
