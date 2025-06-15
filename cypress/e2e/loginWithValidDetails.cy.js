@@ -3,10 +3,15 @@ import { loginSetup } from "../support/utilities/hooks";
 
 describe('Login with Valid Details Tests', () => {
     beforeEach(function() {
+        cy.allure().severity('critical');
         loginSetup();
     });
 
-    it('should login with valid user details', function() {
+    it('should login with valid user details',{ tags: ['@smoke', '@regression'] }, function() {
+        cy.allure()
+            .epic('User Login')
+            .feature('Authentication')
+            .story('User logs in with valid credentials');
         cy.fixture('loginData').then((userData) => {
             // Navigate to Signup/Login page
             cy.getByHref('/login').click();

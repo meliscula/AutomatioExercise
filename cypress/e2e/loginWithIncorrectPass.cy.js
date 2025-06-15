@@ -2,10 +2,15 @@
 import { loginSetup } from "../support/utilities/hooks";
 describe('Login with Incorrect Password Tests', () => {
     beforeEach(function() {
+        cy.allure().severity('critical');
         loginSetup();
     });
 
-    it('should visit Automation Exercise', () => {
+    it('should visit Automation Exercise',{ tags: ['@smoke', '@regression'] }, () => {
+        cy.allure()
+            .epic('User Login')
+            .feature('Authentication')
+            .story('User logins with incorrect password');
         // Verify the homepage is loaded
         cy.get('div[class="logo pull-left"]').find('img').should('be.visible');
     });

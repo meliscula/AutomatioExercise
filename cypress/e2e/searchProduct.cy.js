@@ -6,13 +6,17 @@ describe('Search Product', () => {
     let userData;
 
     beforeEach(function() {
-
+        cy.allure().severity('critical');
         cy.getRandomProduct().then((productName) => {
             userData = {productName};
     });
 });
 
-    it('should search for a product and display results', function() {
+    it('should search for a product and display results',{ tags: ['@smoke', '@regression'] }, function() {
+        cy.allure()
+            .epic('Products')
+            .feature('Search')
+            .story('User searches for a product');
         cy.getRandomProduct().then((productName) => {
             cy.log(`Searching for product: ${productName}`);
 

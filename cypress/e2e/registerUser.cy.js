@@ -3,10 +3,15 @@ import { registrationSetup } from "../support/utilities/hooks";
 
 describe('Register User Tests', () => {
     beforeEach(function() {
+        cy.allure().severity('critical');
         registrationSetup();
     });
 
-    it('should register a new user', function() {
+    it('should register a new user',{ tags: ['@smoke', '@regression'] }, function() {
+        cy.allure()
+            .epic('User Registration')
+            .feature('New User Registration')
+            .story('User registers with valid details');
         cy.fixture('loginData').then((userData) => {
             const uniqueEmail = `test${Date.now()}@example.com`;
 

@@ -4,10 +4,16 @@ import { contactUsForm } from "../support/utilities/hooks";
 
 describe('Contact Us Form', () => {
     beforeEach(function() {
+        cy.allure().severity('critical');
         contactUsForm();
     });
 
-    it('should submit the contact us form successfully', function() {
+    it('should submit the contact us form successfully', { tags: ['@smoke', '@regression'] }, function() {
+        cy.allure()
+            .epic('Forms')
+            .feature('Contact Us')
+            .story('User submits contact form');
+            
         cy.fixture('loginData').then((userData) => {
 
             // Navigate to Contact Us page

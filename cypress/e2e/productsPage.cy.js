@@ -3,10 +3,15 @@ import {loginSetup} from "../support/utilities/hooks";
 
 describe('Products Page', () => {
     beforeEach(function() {
+        cy.allure().severity('critical');
         loginSetup();
     });
 
-    it('should display products page with products', () => {
+    it('should display products page with products',{ tags: ['@smoke', '@regression'] }, () => {
+        cy.allure()
+            .epic('Products')
+            .feature('Display')
+            .story('User views the products page');
         cy.visit('/products');
         cy.get('.title').contains(/ALL PRODUCTS/i).should('be.visible'); // Verify that the page title is displayed
 

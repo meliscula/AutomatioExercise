@@ -1,4 +1,5 @@
 const { defineConfig } = require("cypress");
+const allureWriter = require('@shelex/cypress-allure-plugin/writer');
 
 module.exports = defineConfig({
   defaultCommandTimeout: 10000,
@@ -14,7 +15,12 @@ module.exports = defineConfig({
           return savedEmail;
         }
       });
-      // implement node event listeners here
+      allureWriter(on, config);
+      return config;
+    },
+    env: {
+      allure: true,
+      allureReuseAfterSpec: true
     },
     chromeWebSecurity: false,
     watchForFileChanges: false

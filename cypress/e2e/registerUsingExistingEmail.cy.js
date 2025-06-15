@@ -3,10 +3,15 @@ import { ExistingEmail } from "../support/utilities/hooks";
 
 describe('Register Using Existing Email', () => {
     beforeEach(function() {
+        cy.allure().severity('critical');
         ExistingEmail();
     });
 
-    it('should not register a new user', function() {
+    it('should not register a new user',{ tags: ['@smoke', '@regression'] }, function() {
+        cy.allure()
+            .epic('User Registration')
+            .feature('Email Validation')
+            .story('User attempts to register with an existing email');
         cy.fixture('loginData').then((userData) => {
 
             // Navigate to Signup/Login page
