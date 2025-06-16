@@ -185,7 +185,7 @@
     "allure:open": "allure open allure-report",
     "test:ci": "npm run cy:run && npm run allure:report",
     "pretest": "npm run allure:clear",
-    "test": "npm run cy:run",
+    "test": "npm run allure:clear && npm run cy:run && npm run allure:generate",
     "posttest": "npm run allure:report"
   },
   "keywords": [],

@@ -2,6 +2,7 @@
 // This example commands.js shows you how to
 // create various custom commands and overwrite
 // existing commands.
+
 //
 // For more comprehensive examples of custom
 // commands please read more here:
@@ -75,4 +76,35 @@ Cypress.Commands.add('getRandomProduct', () => {
         const randomIndex = Math.floor(Math.random() * products.length);
         return products[randomIndex];
     });
-});
+})
+// Generate a unique valid email for testing
+Cypress.Commands.add('generateEmail', (type = 'unique') => {
+    const emailTypes = {
+        unique: () => `test.${Date.now()}@example.com`
+    };
+    return emailTypes[type]() || emailTypes.unique();
+})
+
+const invalidEmailTypes = {
+    noAt: 'testexample.com',
+    noDomain: 'test@',
+    noUsername: '@example.com',
+    specialChars: 'test!#$%@example.com',
+    spaces: 'test user@example.com',
+    multipleDots: 'test@example..com',
+    multipleAt: 'test@@example.com',
+    invalidTLD: 'test@example.c'
+};
+
+Cypress.Commands.add('generateInvalidEmail', (type = 'random') => {
+    if (type === 'random') {
+        const types = Object.keys(invalidEmailTypes);
+        type = types[Math.floor(Math.random() * types.length)];
+    }
+    
+    if (!invalidEmailTypes[type]) {
+        throw new Error(`Invalid email type: ${type}. Available types: ${Object.keys(invalidEmailTypes).join(', ')}`);
+    }
+    
+    return invalidEmailTypes[type];
+})

@@ -1,7 +1,9 @@
 /// <reference types="cypress" />
-import { registrationSetup } from "../support/utilities/hooks";
+
+import { generateUniqueEmail, registrationSetup } from "../support/utilities/hooks";
 
 describe('Register User Tests', () => {
+    
     beforeEach(function() {
         cy.allure().severity('critical');
         registrationSetup();
@@ -13,13 +15,16 @@ describe('Register User Tests', () => {
             .feature('New User Registration')
             .story('User registers with valid details');
         cy.fixture('loginData').then((userData) => {
-            const uniqueEmail = `test${Date.now()}@example.com`;
+            const email = generateUniqueEmail();
+            if(!email) {
+                throw new Error('Generated email is undefined');
+            }
 
             // Navigate to Signup/Login page
             cy.getByHref('/login').click();
             cy.getByFormAction('/signup').should('be.visible');
             cy.getTestData('signup-name').type(userData.validUser.name);
-            cy.getTestData('signup-email').type(uniqueEmail);
+            cy.getTestData('signup-email').type(email);
             cy.getTestData('signup-button').click();
             
             // Fill registration form

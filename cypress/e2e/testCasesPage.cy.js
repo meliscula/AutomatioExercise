@@ -3,7 +3,7 @@ import { loginSetup} from "../support/utilities/hooks";
 
 describe('Test Cases Page', () => {
     beforeEach(function() {
-        cy.allure().severity('critical');
+        cy.allure().severity('minor');
         loginSetup();
     });
 
