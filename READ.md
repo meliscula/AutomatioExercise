@@ -78,6 +78,7 @@ This project provides a scalable automated testing framework for web application
 
 
 ## Folder Structure
+```bash
 root
 ├── cypress/
 │   ├── e2e/               # Test specs
