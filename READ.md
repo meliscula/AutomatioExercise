@@ -48,21 +48,27 @@ This project provides a scalable automated testing framework for web application
    git clone https://github.com/yourusername/your-repo.git
    cd your-repo
 2. Install dependencies
+    ```bash
     npm install
 3. Configure environment variables if necessary (e.g., base URL).
 
 ## Running Test Locally
 1. Run Cypress tests in interactive mode
+    ```bash
     npx cypress open
 2. Run tests headlessly (useful for CI):
+    ```bash
     npx cypress run
 
 ## Generating Allure Reports
 1. Ensure allure-commandline is installed globally
+    ```bash
     npm install -g allure-commandline --save-dev
 2. Run tests with Allure reporter enabled
+    ```bash
     npx cypress run --reporter allure-mochawesome
 3. Generate and open the Allure report
+    ```bash
     allure serve allure-results
 
 ## Github Actions Integration
