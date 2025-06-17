@@ -48,22 +48,22 @@ This project provides a scalable automated testing framework for web application
    git clone https://github.com/yourusername/your-repo.git
    cd your-repo
 2. Install dependencies
-    ```npm install
+    npm install
 3. Configure environment variables if necessary (e.g., base URL).
 
 ## Running Test Locally
 1. Run Cypress tests in interactive mode
-    ```npx cypress open
+    npx cypress open
 2. Run tests headlessly (useful for CI):
-    ```npx cypress run
+    npx cypress run
 
 ## Generating Allure Reports
 1. Ensure allure-commandline is installed globally
-    ```npm install -g allure-commandline --save-dev
+    npm install -g allure-commandline --save-dev
 2. Run tests with Allure reporter enabled
-    ```npx cypress run --reporter allure-mochawesome
+    npx cypress run --reporter allure-mochawesome
 3. Generate and open the Allure report
-    ```allure serve allure-results
+    allure serve allure-results
 
 ## Github Actions Integration
 1. The workflow runs tests on push or pull requests to the main branch.
@@ -84,3 +84,42 @@ root
 ├── cypress.config.js      # Cypress configuration
 ├── package.json           # Project dependencies and scripts
 └── README.md              # This file
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
