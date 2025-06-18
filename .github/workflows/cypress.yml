@@ -10,7 +10,7 @@ jobs:
   cypress-run:
     runs-on: windows-latest
     steps:
-      - name: Checkout Repository
+      - name: Automation Exercise Repository
         uses: actions/checkout@v4
 
       - name: Setup Node.js

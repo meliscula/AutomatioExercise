@@ -36,7 +36,7 @@ describe('Add to Cart Tests', () => {
         });
 
         // Navigate to the cart page
-        cy.visit('/view_cart');                                        // Click on the "View Cart" link
+        cy.visit('/view_cart');
 
         // Verify that the cart page is displayed
         cy.url().should('include', '/view_cart');
