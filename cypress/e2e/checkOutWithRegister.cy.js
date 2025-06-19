@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-import { checkoutRegistrationSetup, paymentDetailsSetup, generateUniqueEmail } from "../support/utilities/hooks";
+import { checkoutRegistrationSetup, paymentDetailsSetup, } from "../support/utilities/hooks";
 
 describe('Checkout with Registration', () => {
     beforeEach(function() {

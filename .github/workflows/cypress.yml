@@ -54,3 +54,10 @@ jobs:
           retention-days: 30
           if-no-files-found: error # New feature in v4
           compression-level: 6 # New feature in v4 to optimize upload size
+
+      - name: Serve Allure Report
+        if: always()
+        run: |
+          npx http-server allure-report -p 8080 &
+          sleep 5
+          curl http://localhost:8080
