@@ -52,3 +52,18 @@ export const generateInvalidEmail = (type = 'random') => {
         return data.invalidEmails[type] || data.invalidEmails.noAt;
     });
 };
+
+export const checkoutRegistrationSetup = () => {
+    return cy.fixture("loginData").then((data) => {
+        cy.wrap(data).as("checkoutRegistration");
+        cy.clearCookies();
+        cy.clearLocalStorage();
+        cy.visit("/");
+    });
+};
+
+export const paymentDetailsSetup = () => {
+    return cy.fixture("loginData").then((data) => {
+        cy.wrap(data).as("paymentDetails");
+    });
+};

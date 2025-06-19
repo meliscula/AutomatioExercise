@@ -77,7 +77,7 @@ Cypress.Commands.add('getRandomProduct', () => {
         return products[randomIndex];
     });
 })
-// Generate a unique valid email for testing
+// Generate a unique valid email
 Cypress.Commands.add('generateEmail', (type = 'unique') => {
     const emailTypes = {
         unique: () => `test.${Date.now()}@example.com`

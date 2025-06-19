@@ -45,6 +45,28 @@
       "Winter Top",
       "Summer White Top"
     ]
+  },
+
+    "checkoutRegistrationData": {
+      "name":"John Doe",
+      "email": "JD@example.com",
+      "password": "password123",
+      "firstName": "John",
+      "lastName": "Doe",
+      "company": "Test Company",
+      "address": "123 Test St",
+      "address2": "Apt 4B",
+      "state": "California",
+      "city": "Los Angeles",
+      "zipcode": "90001",
+      "mobileNumber": "1234567890"
+    },
+
+    "paymentDetails": {
+      "cardName": "John Doe",
+      "cardNumber": "4111111111111111",
+      "cvc": "123",
+      "expiryMonth": "12",
+      "expiryYear": "2030"
+    }
   }
-  
-}
