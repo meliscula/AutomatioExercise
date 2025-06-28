@@ -67,3 +67,11 @@ export const paymentDetailsSetup = () => {
         cy.wrap(data).as("paymentDetails");
     });
 };
+
+export const productName = () => {
+    return cy.fixture("loginData").then((data) => {
+        const names = data.products.names;
+        const randomIndex = Math.floor(Math.random() * names.length);
+        return names[randomIndex];
+    });
+};
